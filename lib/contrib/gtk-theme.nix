@@ -16,17 +16,21 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "sha256-0eCAfm/MWXv6BbCl2vbVbvgv8DiUH09TAUhoKq7Ow0k=";
   };
   buildInputs = with pkgs; [
+    nodejs
     sassc
     bc
     which
     rendersvg
     meson
     ninja
-    nodePackages.sass
+    sass
     gtk4.dev
     optipng
   ];
-  phases = [ "unpackPhase" "installPhase" ];
+  phases = [
+    "unpackPhase"
+    "installPhase"
+  ];
   installPhase = ''
     HOME=/build
     chmod 777 -R .
